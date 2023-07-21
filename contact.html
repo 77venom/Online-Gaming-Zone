@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Gaming Zone</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <section class="contact" id="contact">
+
+    <div class="row">
+
+        <form >
+            <h3>SIGN UP FORM</h3>
+            <div class="inputBox">
+                <span class="fas fa-user"></span>
+                <input type="text" id="Name" placeholder="Full name">
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-envelope"></span>
+                <input type="email"id="Email" placeholder="Email">
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-phone"></span>
+                <input type="number" id="Contact" placeholder="Phone No.">
+            </div>
+            
+            <input type="button" value="Send" class="btn" onclick="sendEmail()">
+            <p></p>
+            <input type="button" value="Go to home page" class="btn" onclick="location.href = 'index.html'">
+        </form>
+    </div>
+
+</section>
+
+<script src="js/script.js"></script>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>
+    function sendEmail() {
+        var name = document.getElementById("Name").value;
+        var email = document.getElementById("Email").value;
+        var phone = document.getElementById("Contact").value;
+        var body = "Customer Name: " + name + "<br/> Email:  " +email + "<br/> Contact no. : " + phone;
+
+
+        console.log("body");
+
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "spider824044@gmail.com",
+            Password : "C0232C23800C429C0136E7E602CD61D3FD47",
+            To : 'parker824044@gmail.com',
+            From : "spider824044@gmail.com",
+            Subject : "New Customer Enquiry",
+            Body : body
+}).then(
+  message => alert("You have successfully signed up. Please go to home page and click the message us button.")
+);
+    }
+</script>
+</body>
